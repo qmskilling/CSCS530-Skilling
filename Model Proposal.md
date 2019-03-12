@@ -181,9 +181,9 @@ Neurons will update synchronously with the sequence on each turn as follows:
 
 ### 4) Model Parameters and Initialization
 
-Global parameters include: the spatial dimension of the model (2D vs 3D); the growth rate of connection formation; the growth-rate of connection strengthening/weakening; level of background noise; and the heterogeneity factors in neurons' firing rate/threshold, survey radius and timescale, and excitability type (integrator or resonator).
+Global parameters include: the <b> spatial dimension </b> of the model (2D vs 3D); the new <b> connection growth-rate </b>; the <b> connection strength growth-rate </b>; level of background <b> noise </b>; and the heterogeneity factors in neurons' firing rate/threshold, <b> survey radius </b>  and <b> survey timescale </b> , and <b> excitability type </b> (integrator or resonator). Ideally, <b> excitability type </b> can rely on the <b> spatial dimension </b>, mimicking early network formation in vivo (3D, where molecular gradients control position of excitability type) or network formation in vitro (2D, where excitability type is mixed); this may be too complicated, however. 
 
-The model will be initialized by first populating the environment with neurons and then assigning random values for a neuron's voltage and parameters controlled by heterogenous factors (those listed in the last point, above). 
+The model will be initialized by first populating the environment with neurons and then assigning random values for a neuron's <b> voltage </b> and parameters controlled by heterogenous factors (those listed in the last point, above). 
 
 The model procedure is as follows:
 
