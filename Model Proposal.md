@@ -111,10 +111,7 @@ The model procedure is as follows:
 3. Neurons integrate their input and potentially activate  
 -Neurons update their <b> voltage </b> <br/>
   -V(t+1) = V(t) + I_{synaptic} + I_{noise}<br/>
--If <b> V(t) > V(threshold) </b>:<br/>
-  - V(t) fires and the timing is tabulated<br/>
-  - V(t) = 0<br/>
--If the neuron fired, it is flagged to update synaptic output on the next time step (Step 1)<br/>
+-If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
