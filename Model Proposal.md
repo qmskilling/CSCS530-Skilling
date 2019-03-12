@@ -98,6 +98,29 @@ Agents in this system will the neurons and connections will be sub-agents belong
   - Update voltage
   - Spike and reset
   - Adjust firing frequency
+  
+  
+Example code:
+
+```python
+def updateVoltage(time_ind):
+    
+    global neurons
+    
+    for nrn in neurons:
+        nrn.voltage += stepSize*(nrn.Input_syn + nrn.Input_noise)
+        
+        count = 1
+        
+        if nrn.voltage >= voltageThreshold:
+
+            nrn.voltage = 0
+            nrn.spikeTimes.append(time_ind*stepSize)
+            spikeNrns.append(count)
+            
+            count += 1
+
+```
 
 &nbsp;
 
