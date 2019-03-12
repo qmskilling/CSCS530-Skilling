@@ -109,9 +109,9 @@ The model procedure is as follows:
 -Noise from the environment is calculated. Input will be given based if the noise of the system is greater than a real-valued number pulled from a uniform distribution between 0 and 1. 
   
 3. Neurons integrate their input and potentially activate
-*Neurons update their <b> voltage </b>
-  *(V(t+1) = V(t) + I_{synaptic} + I_{noise}
-*If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
+  - Neurons update their <b> voltage </b>
+    - (V(t+1) = V(t) + I_{synaptic} + I_{noise}
+  - If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
