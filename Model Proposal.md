@@ -107,10 +107,11 @@ def updateVoltage(time_ind):
     
     global neurons
     
+    
+    count = 1
+    
     for nrn in neurons:
         nrn.voltage += stepSize*(nrn.Input_syn + nrn.Input_noise)
-        
-        count = 1
         
         if nrn.voltage >= voltageThreshold:
 
@@ -189,3 +190,4 @@ These data will be combined and used to classify the system in terms of the spat
 &nbsp;
 
 ### 6) Parameter Sweep
+
