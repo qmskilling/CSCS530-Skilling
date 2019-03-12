@@ -108,13 +108,13 @@ The model procedure is as follows:
 -Synaptic input is calculated by multiplying synaptic weight by an output profile meant to mimick the shape of action potential generation in biophysical neurons
 -Noise from the environment is calculated. Input will be given based if the noise of the system is greater than a real-valued number pulled from a uniform distribution between 0 and 1. 
   
-3. Neurons integrate their input and potentially activate
--Neurons update their <b> voltage </b> 
-  -V(t+1) = V(t) + I_{synaptic} + I_{noise}
--If <b> V(t) > V(threshold) </b>:
-  - V(t) fires and the timing is tabulated
-  - V(t) = 0
--If the neuron fired, it is flagged to update synaptic output on the next time step (Step 1)
+3. Neurons integrate their input and potentially activate  
+-Neurons update their <b> voltage </b> <br/>
+  -V(t+1) = V(t) + I_{synaptic} + I_{noise}<br/>
+-If <b> V(t) > V(threshold) </b>:<br/>
+  - V(t) fires and the timing is tabulated<br/>
+  - V(t) = 0<br/>
+-If the neuron fired, it is flagged to update synaptic output on the next time step (Step 1)<br/>
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
