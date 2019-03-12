@@ -109,7 +109,9 @@ The model procedure is as follows:
 -Noise from the environment is calculated. Input will be given based if the noise of the system is greater than a real-valued number pulled from a uniform distribution between 0 and 1. 
   
 3. Neurons integrate their input and potentially activate
--Neurons update their <b> voltage </b> following the Integrate-and-Fire formalism: V(t+1) = V(t) + I_{synaptic} + I_{noise} - I_{leak}
+
+-Neurons update their <b> voltage </b> following the Integrate-and-Fire formalism: V(t+1) = V(t) + I_{synaptic} + I_{noise}
+
 -If <b> V(t) > V(threshold) </b>:
   - V(t) fires and the timing is tabulated
   - V(t) = 0
