@@ -110,13 +110,14 @@ The model procedure is as follows:
   
 3. Neurons integrate their input and potentially activate
   - Neurons update their <b> voltage </b>
-    - (V(t+1) = V(t) + I_{synaptic} + I_{noise}
+    - V(t+1) = V(t) + I_{synaptic} + I_{noise}
   - If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
-    - Pre-before-post will increase connectivity strength
-    - Post-before-pre will decrease connectivity strength
+    - Change in spike timing is calculated for each neuron and its pre-synaptic partners, \\delta t = t^{pre}_{spike} - t^{post}_{spike}
+    - If \\delta t < 0, w_{pre-post} increases
+    - If \\delta t > 0, w_{pre-post} decreases
 5. Neurons survey for synapse creation <b> if they did not fire </b>
   - Neurons correlate their activity to those in <b> survey radius </b>
   - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
