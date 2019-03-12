@@ -123,6 +123,7 @@ def calculateInput(time_ind):
             preSynSpikeTime = neurons[conn].spikeTime.end()
             
             #updates the synaptic input
+            #Integrate-and-fire neurons are Type 1 by default, so I will have to think of a succint way to introduce type 2
             nrn.Input_syn += weights[preSyn]*(exp(-(time_ind*stepSize - preSynSpikeTime)/30) - exp(-(time_ind*stepSize - preSynSpikeTime)/3.))
 
         #updates the noise input based on probability
