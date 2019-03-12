@@ -30,11 +30,43 @@ As I will outline below, I want to examine how different spatial dimensions affe
 ## Model Outline
 *****
 &nbsp;
-### 1) Environment
 
+### 1) Environment
+The environment of this model will be mostly passive but will be used in conjunction with changing agent parameters to examine properties of structural and effective neural networks.
+
+1. Enviornment will be a grid-free square space
+  - Neurons will be placed randomly on the grid
+2. Boundary conditions will be parameterized to be wrapped or un-wrapped
+  - Initially, only unwrapped boundary conditions will be used.
+  - Wrapped boundary conditions will be implemented if time permits.
+3. Dimensionality will be a parameter
+  - 2D vs 3D effects on network properties will be examined
+4. Enivornment-owned variables
+  - Cell-packing density
+  - Dimensionality
+  - Background noise
+5. Enviornment-owned methods/procedures
+  - Neuron placement
+  - Noise <b> will only be set by the enviornment </b> and will be accounted for by an agent-owned procedure.
 &nbsp;
 
 ### 2) Agents
+
+Agents in this system will the neurons and connections will be sub-agents belonging to neurons.
+
+1. Agent-owned variables
+  - Voltage
+  - Survey radius and timescale (to form connections)
+  - Connectivity (once connections are formed)
+  - Intrinsic frequency/firing threshold
+  - Excitability type
+  
+2. Agent-owned methods/procedures
+  - Calculate input from connections
+  - Calculate input from environment (noise)
+  - Update voltage
+  - Spike and reset
+  - Adjust firing frequency
 
 &nbsp;
 
@@ -44,10 +76,47 @@ As I will outline below, I want to examine how different spatial dimensions affe
 
 ### 4) Model Parameters and Initialization
 
-&nbsp;
+#### Interaction Topology
+
+Interactions will be done in three ways. 
+
+1. Neurons will survey their local environment (controlled by <b> survey radius </b>) and will form connections probabilistically, taking into account time-of-activity correlations with nearby neurons.
+
+2. Once connections are formed, neurons will receive input from their pre-synaptic partners based on the connectivity strength between partners.
+
+3. Connectivity strength will be adjusted following a spike-timing-dependent plasticity rule, where pre-before-post firing will increase the strength and post-before-pre will decrease the strength.
+
+#### Action Sequence
+
+Initialization will include populating the environment and initializing all agent variables/parameters. Then, neurons will update synchronously with the sequence on each turn as follows:
+
+1. Neurons calculate their input
+  -Synaptic is calculated.
+  -Noise from the environment is calculated
+  
+2. Neurons integrate their input and potentially activate
+
+  -Neurons update their <b> voltage </b>
+  -If <b> voltage </b> is above <b> threshold </b>, the neuron fires and <b> voltage </b> is reset
+  -If neuron fired, it is flagged to update synaptic output on the next time step (Step 1)
+
+3. Connection strengths are adjusted (if they exist)
+  - Spike-timing-dependent plasticity
+    - Pre-before-post will increase connectivity strength
+    - Post-before-pre will decrease connectivity strength
+4. Neurons survey for synapse creation <b> if they did not fire </b>
+  - Neurons correlate their activity to those in <b> survey radius </b>
+  - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
 
 ### 5) Assessment and Outcome Measures
 
+Successful implementation of this model will yield quantifiable network structures (actual connections) and population spiking data. 
+
+Network structures will be probed for measures such as component size (is the network fully connected), clustering (number of pairwise connections vs triplet connections), and connectivity distribution, among others; Newman will be a source. 
+
+Spiking data will be analyzed for such things as synchronization and phase coherence, effective network connectivity (e.g. using cross-correlation or mutual information on all pairwise spike timings)
+
+These data will be combined and used to classify the system in terms of the spatial dimension constraint. The idea is to get an idea of what kinds of networks form and what the corresponding activity looks like in terms of different growth environments.
 &nbsp;
 
 ### 6) Parameter Sweep
