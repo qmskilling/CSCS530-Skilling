@@ -47,7 +47,7 @@ The environment of this model will be mostly passive but will be used in conjunc
   - Background noise
 5. Enviornment-owned methods/procedures
   - Neuron placement
-  - Noise <b> will only be set by the enviornment </b> and will be accounted for by an agent-owned procedure.
+  - Noise will only be _set_ by the enviornment but will be accounted for by an agent-owned procedure (_Calculate input from environment_).
 &nbsp;
 
 ### 2) Agents
@@ -90,7 +90,7 @@ Neurons will update synchronously with the sequence on each turn as follows:
 1. Neurons calculate their input
 2. Neurons integrate their input and potentially activate
 3. Connection strengths are adjusted (if they exist)
-4. Neurons survey for synapse creation <b> if they did not fire </b>
+4. Neurons survey for synapse creation _if they did not fire_
 
 &nbsp;
 
@@ -119,7 +119,7 @@ The model procedure is as follows:
     - If dt < 0 (pre-synaptic firing before post-synaptic), w(pre-post) increases
     - If dt > 0 (post-synaptic firing before pre-synaptic), w(pre-post) decreases
     - Timings should work that with tonic firing, weights will not change on average
-5. Neurons survey for synapse creation <b> if they did not fire </b>
+5. Neurons survey for synapse creation _if they did not fire_
   - Neurons correlate their activity to those in <b> survey radius </b> and <b> survey timescale </b>
   - If correlation is high, a connection forms from the _surveyed_ neuron to the _surveying_ neuron
 
