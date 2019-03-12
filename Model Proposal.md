@@ -120,8 +120,8 @@ The model procedure is as follows:
     - If dt > 0 (post-synaptic firing before pre-synaptic), w(pre-post) decreases
     - Timings should work that with tonic firing, weights will not change on average
 5. Neurons survey for synapse creation <b> if they did not fire </b>
-  - Neurons correlate their activity to those in <b> survey radius </b>
-  - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
+  - Neurons correlate their activity to those in <b> survey radius </b> and <b> survey timescale </b>
+  - If correlation is high, a connection forms from the _surveyed_ neuron to the _surveying_ neuron
 
 ### 5) Assessment and Outcome Measures
 
