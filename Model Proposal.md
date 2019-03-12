@@ -11,7 +11,7 @@ _Quinton Skilling_
 ### Goal
 *****
 
-Experimental and computational studies of neural structures and activity abound but many consider neural systems in fully formed networks. This project aims to understand how spatial dimension constrains how neural networks are formed and how those networks shape corresponding neural activity (i.e. "spikes"). This may give rise to a better understanding of how networks form in vivo and in vitro and how that translates to cognition.
+Experimental and computational studies of neural structures and activity abound but many consider neural systems in fully formed networks. This project aims to understand how spatial dimension constrains how neural networks are formed and how those networks shape corresponding neural activity (i.e. "spikes"). This may give rise to a better understanding of how networks form in vivo and in vitro and how that translates to neural processes such as memory consolidation.
 
 &nbsp;
 ### Justification
