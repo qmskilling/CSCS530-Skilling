@@ -69,6 +69,15 @@ def populateSpace_2D():
         newPos = [grid_size*RD.random(), grid_size*RD.random()]
         
         nrn.position = newPos
+        
+def init():
+    global neurons
+    
+    neurons = []
+    for i in range(networkSize):
+        neurons.append(neuron())
+    
+    populateSpace_2D()
 
 ```
 
