@@ -72,9 +72,6 @@ Agents in this system will the neurons and connections will be sub-agents belong
 
 ### 3) Action and Interaction
 
-&nbsp;
-
-### 4) Model Parameters and Initialization
 
 #### Interaction Topology
 
@@ -107,6 +104,11 @@ Initialization will include populating the environment and initializing all agen
 4. Neurons survey for synapse creation <b> if they did not fire </b>
   - Neurons correlate their activity to those in <b> survey radius </b>
   - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
+
+
+&nbsp;
+
+### 4) Model Parameters and Initialization
 
 ### 5) Assessment and Outcome Measures
 
