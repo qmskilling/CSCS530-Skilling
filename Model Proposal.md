@@ -108,7 +108,7 @@ The model procedure is as follows:
 -Synaptic input is calculated by multiplying synaptic weight by an output profile meant to mimick the shape of action potential generation in biophysical neurons
 -Noise from the environment is calculated. Input will be given based if the noise of the system is greater than a real-valued number pulled from a uniform distribution between 0 and 1. 
   
-3. Neurons integrate their input and potentially activate  
+3. Neurons integrate their input and potentially activate
   -Neurons update their <b> voltage </b>
     -V(t+1) = V(t) + I_{synaptic} + I_{noise}
   -If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
