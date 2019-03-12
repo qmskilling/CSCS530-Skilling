@@ -191,3 +191,10 @@ These data will be combined and used to classify the system in terms of the spat
 
 ### 6) Parameter Sweep
 
+I plan to sweep through the following parameters:
+- <b> survey radius </b>
+- <b> survey timescale </b>
+- <b> cell-packing density </b>
+- <b> background noise </b>
+- <b> connection growth rate </b>
+- <b> connection strength growth rate </b>
