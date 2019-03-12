@@ -115,9 +115,10 @@ The model procedure is as follows:
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
-    - Change in spike timing is calculated for each neuron and its pre-synaptic partners, "\\delta" t = t^{pre}_{spike} - t^{post}_{spike}
-    - If \\delta t < 0, w_{pre-post} increases
-    - If \\delta t > 0, w_{pre-post} decreases
+    - Change in spike timing is calculated for each neuron and its synaptic partners,  dt = t(pre spike) - t(post spike)
+    - If dt < 0 (pre-synaptic firing before post-synaptic), w(pre-post) increases
+    - If dt > 0 (post-synaptic firing before pre-synaptic), w(pre-post) decreases
+    - Timings should work that with tonic firing, weights will not change on average
 5. Neurons survey for synapse creation <b> if they did not fire </b>
   - Neurons correlate their activity to those in <b> survey radius </b>
   - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
