@@ -233,3 +233,7 @@ I plan to sweep through the following parameters:
 I plan to normalize as many of these parameters as I can. The <b> survey radius </b>, for example, will be normalized by the expected average spatial distance between neurons (based on <b> cell-packing density </b>) and the <b> connection strength growth rate </b> will be normalized by the <b> maximal connection strength </b>.
 
 If normalization is successful, I expect that values close to unity in <b> survey radius </b> and <b> connection strength growth rate </b> will result in fully connected networks and fully synchronous dynamics (in the case of Type 2 excitability), respectively. However, with high levels of noise, I expect disruption to both a fully-connect network structure and asynchronous dynamics. 
+
+I also expect that large values of the <b> survey radius </b> and long <b> survey timescales </b> will increase network connectivity and will serve as a high-frequency perturbation to neural activity.
+
+Overall, I expect large values of the above-listed parameters will result in densely connected networks with activity following the mean population excitability type (i.e., type 2 networks will be synchronous whereas type 1 will not). However, speculating about how intermediate values of these parameters will affect network formation and emergent activity is difficult; this is what I want to characterize with the model.
