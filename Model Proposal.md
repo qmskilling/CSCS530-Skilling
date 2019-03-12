@@ -111,7 +111,7 @@ The model procedure is as follows:
 3. Neurons integrate their input and potentially activate
   - Neurons update their <b> voltage </b>
     - V(t+1) = V(t) + I_{synaptic} + I_{noise}
-  - If <b> V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
+  - If V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
@@ -129,9 +129,9 @@ Successful implementation of this model will yield quantifiable network structur
 
 Network structures will be probed for measures such as component size (is the network fully connected), clustering (number of pairwise connections vs triplet connections), and connectivity distribution, among others; Newman will be a source. 
 
-Spiking data will be analyzed for such things as synchronization and phase coherence, effective network connectivity (e.g. using cross-correlation or mutual information on all pairwise spike timings)
+Spiking data will be analyzed for such things as synchronization, phase coherence, bursting, and effective network connectivity (e.g. using cross-correlation or mutual information on all pairwise spike timings), among others that may arise from the data.
 
-These data will be combined and used to classify the system in terms of the spatial dimension constraint. The idea is to get an idea of what kinds of networks form and what the corresponding activity looks like in terms of different growth environments.
+These data will be combined and used to classify the system in terms of the spatial dimension constraint. The idea is to determine of what kinds of networks form and what the corresponding activity looks like in terms of different growth environments and to relate this information back to experimental findings.
 &nbsp;
 
 ### 6) Parameter Sweep
