@@ -51,7 +51,7 @@ The environment of this model will be mostly passive but will be used in conjunc
 &nbsp;
 
 
-Example Code: 
+Example Code & psuedocode: 
 
 ```python
 networkSize = 1000
@@ -75,7 +75,7 @@ def init():
     
     neurons = []
     for i in range(networkSize):
-        neurons.append(neuron())
+        neurons.append(neuron(i))
     
     populateSpace_2D()
 
@@ -83,12 +83,12 @@ def init():
 
 ### 2) Agents
 
-Agents in this system will the neurons and connections will be sub-agents belonging to neurons.
+Agents in this system will be the neurons and their connections will be sub-agents.
 
 1. Agent-owned variables
   - Voltage
   - Survey radius and timescale (to form connections)
-  - Connectivity (once connections are formed)
+  - Connectivity strength (once connections are formed)
   - Intrinsic frequency/firing threshold
   - Excitability type
   
@@ -158,7 +158,6 @@ def updateVoltage(time_ind):
 
 ### 3) Action and Interaction
 
-
 #### Interaction Topology
 
 Interactions will be done in three ways. 
@@ -209,6 +208,8 @@ The model procedure is as follows:
   - Neurons correlate their activity to those in <b> survey radius </b> and <b> survey timescale </b>
   - If correlation is high, a connection forms from the _surveyed_ neuron to the _surveying_ neuron
 
+&nbsp;
+
 ### 5) Assessment and Outcome Measures
 
 Successful implementation of this model will yield quantifiable network structures (actual connections) and population spiking data. 
@@ -218,6 +219,7 @@ Network structures will be probed for measures such as component size (is the ne
 Spiking data will be analyzed for such things as synchronization, phase coherence, bursting, and effective network connectivity (e.g. using cross-correlation or mutual information on all pairwise spike timings), among others that may arise from the data.
 
 These data will be combined and used to classify the system in terms of the spatial dimension constraint. The idea is to determine of what kinds of networks form and what the corresponding activity looks like in terms of different growth environments and to relate this information back to experimental findings.
+
 &nbsp;
 
 ### 6) Parameter Sweep
