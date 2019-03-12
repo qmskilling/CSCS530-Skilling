@@ -100,19 +100,48 @@ Agents in this system will the neurons and connections will be sub-agents belong
   - Adjust firing frequency
   
   
-Example code:
+Example code and psuedocode:
 
 ```python
+def calculateInput(time_ind):
+    
+    global neurons
+    
+    #Loops through neurons
+    for nrn in neurons:
+        
+        #Copies conneciton list
+        conns = nrn.connections
+        
+        #if there are no connections, skip this neuron
+        if conns is null:
+            continue
+        
+        #Loops through the connections
+        for conn in conns:
+            #creates a temp variable for pre spike time
+            preSynSpikeTime = neurons[conn].spikeTime.end()
+            
+            #updates the synaptic input
+            nrn.Input_syn += weights[preSyn]*(exp(-(time_ind*stepSize - preSynSpikeTime)/30) - exp(-(time_ind*stepSize - preSynSpikeTime)/3.))
+
+        #updates the noise input based on probability
+        if RD.random() < noiseProb:
+            nrn.Input_noise += noiseVal
+            
 def updateVoltage(time_ind):
     
     global neurons
     
-    
-    count = 1
-    
+    #loops through the neurons
     for nrn in neurons:
+    
+        #Updates voltage using synaptic input and noise input
         nrn.voltage += stepSize*(nrn.Input_syn + nrn.Input_noise)
         
+        count = 1
+        
+        #spiking criteria: if neuron spikes, tabulate the time, update the spike list, and reset voltage
         if nrn.voltage >= voltageThreshold:
 
             nrn.voltage = 0
@@ -120,6 +149,7 @@ def updateVoltage(time_ind):
             spikeNrns.append(count)
             
             count += 1
+            
 
 ```
 
