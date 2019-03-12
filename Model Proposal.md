@@ -115,7 +115,7 @@ The model procedure is as follows:
 
 4. Connection strengths are adjusted (if they exist)
   - Spike-timing-dependent plasticity
-    - Change in spike timing is calculated for each neuron and its pre-synaptic partners, \\delta t = t^{pre}_{spike} - t^{post}_{spike}
+    - Change in spike timing is calculated for each neuron and its pre-synaptic partners, "\\delta" t = t^{pre}_{spike} - t^{post}_{spike}
     - If \\delta t < 0, w_{pre-post} increases
     - If \\delta t > 0, w_{pre-post} decreases
 5. Neurons survey for synapse creation <b> if they did not fire </b>
