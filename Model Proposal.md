@@ -1,4 +1,4 @@
-# Model Proposal for _[Investigations of Spatial Constraints on Neuronal Networks and Activity]_
+# Model Proposal for Investigations of Spatial Constraints on Neuronal Networks and Activity
 
 _Quinton Skilling_
 
@@ -85,30 +85,43 @@ Interactions will be done in three ways.
 
 #### Action Sequence
 
-Initialization will include populating the environment and initializing all agent variables/parameters. Then, neurons will update synchronously with the sequence on each turn as follows:
+Neurons will update synchronously with the sequence on each turn as follows:
 
 1. Neurons calculate their input
-  -Synaptic is calculated.
-  -Noise from the environment is calculated
-  
 2. Neurons integrate their input and potentially activate
-
-  -Neurons update their <b> voltage </b>
-  -If <b> voltage </b> is above <b> threshold </b>, the neuron fires and <b> voltage </b> is reset
-  -If neuron fired, it is flagged to update synaptic output on the next time step (Step 1)
-
 3. Connection strengths are adjusted (if they exist)
-  - Spike-timing-dependent plasticity
-    - Pre-before-post will increase connectivity strength
-    - Post-before-pre will decrease connectivity strength
 4. Neurons survey for synapse creation <b> if they did not fire </b>
-  - Neurons correlate their activity to those in <b> survey radius </b>
-  - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
-
 
 &nbsp;
 
 ### 4) Model Parameters and Initialization
+
+Global parameters include: the spatial dimension of the model (2D vs 3D); the growth rate of connection formation; the growth-rate of connection strengthening/weakening; level of background noise; and the heterogeneity factors in neurons' firing rate/threshold, survey radius and timescale, and excitability type (integrator or resonator).
+
+The model will be initialized by first populating the environment with neurons and then assigning random values for a neuron's voltage and parameters controlled by heterogenous factors (those listed in the last point, above). 
+
+The model procedure is as follows:
+
+1. One-time initialization including steps listed above.
+
+2. Neurons calculate their input
+  -Synaptic input is calculated by multiplying synaptic weight by an output profile meant to mimick the shape of action potential generation in biophysical neurons
+  -Noise from the environment is calculated. Input will be given based if the noise of the system is greater than a real-valued number pulled from a uniform distribution between 0 and 1. 
+  
+3. Neurons integrate their input and potentially activate
+  -Neurons update their <b> voltage </b> following the Integrate-and-Fire formalism: V(t+1) = V(t) + I_{synaptic} + I_{noise} - I_{leak}
+  -If <b> V(t) > V(threshold) </b>:
+    - V(t) fires and the timing is tabulated
+    - V(t) = 0
+  -If the neuron fired, it is flagged to update synaptic output on the next time step (Step 1)
+
+4. Connection strengths are adjusted (if they exist)
+  - Spike-timing-dependent plasticity
+    - Pre-before-post will increase connectivity strength
+    - Post-before-pre will decrease connectivity strength
+5. Neurons survey for synapse creation <b> if they did not fire </b>
+  - Neurons correlate their activity to those in <b> survey radius </b>
+  - If correlation is high over <b> survey timescale </b>, a connection forms <b> to the surveying neuron
 
 ### 5) Assessment and Outcome Measures
 
