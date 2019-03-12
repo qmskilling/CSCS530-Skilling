@@ -110,7 +110,7 @@ The model procedure is as follows:
   
 3. Neurons integrate their input and potentially activate
   - Neurons update their <b> voltage </b>
-    - V(t+1) = V(t) + I_{synaptic} + I_{noise}
+    - V(t) = V(t-1) + I_{synaptic} + I_{noise}
   - If V(t) > V(threshold), the neurons fires an action potential (sent to post-synaptic partner, updated in Step 1 on the next tick) and is reset to zero.
 
 4. Connection strengths are adjusted (if they exist)
