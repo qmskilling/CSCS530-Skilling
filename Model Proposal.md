@@ -226,5 +226,10 @@ I plan to sweep through the following parameters:
 - <b> survey timescale </b>
 - <b> cell-packing density </b>
 - <b> background noise </b>
+- <b> maximal connection strength </b>
 - <b> connection growth rate </b>
 - <b> connection strength growth rate </b>
+
+I plan to normalize as many of these parameters as I can. The <b> survey radius </b>, for example, will be normalized by the expected average spatial distance between neurons (based on <b> cell-packing density </b>) and the <b> connection strength growth rate </b> will be normalized by the <b> maximal connection strength </b>.
+
+If normalization is successful, I expect that values close to unity in <b> survey radius </b> and <b> connection strength growth rate </b> will result in fully connected networks and fully synchronous dynamics (in the case of Type 2 excitability), respectively. However, with high levels of noise, I expect disruption to both a fully-connect network structure and asynchronous dynamics. 
