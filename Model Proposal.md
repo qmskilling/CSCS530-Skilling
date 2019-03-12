@@ -50,6 +50,28 @@ The environment of this model will be mostly passive but will be used in conjunc
   - Noise will only be _set_ by the enviornment but will be accounted for by an agent-owned procedure (_Calculate input from environment_).
 &nbsp;
 
+
+Example Code: 
+
+```python
+networkSize = 1000
+targetDensity = 0.1
+backgroundNoise = 0
+
+def populateSpace_2D():
+
+    global neurons
+    
+    grid_size = networkSize/targetDensity
+    
+    for nrn in neurons:
+        
+        newPos = [grid_size*RD.random(), grid_size*RD.random()]
+        
+        nrn.position = newPos
+
+```
+
 ### 2) Agents
 
 Agents in this system will the neurons and connections will be sub-agents belonging to neurons.
