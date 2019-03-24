@@ -20,12 +20,17 @@ Experimental and computational studies of neural structures and activity abound 
 Neuronal networks are complex, dynamical systems whose behavior emerges from interactions between individual neurons. Neuron shape and function come in different varieties with heterogeneities in the type and number of synaptic connections that form networks. Using agent-based modeling to simulate individual neurons and their connections will allow me to examine how these heterogeneities affect the growth and maintenence of networks and how those networks consequently shape neuronal activity.
 
 &nbsp;
+
+*__LS COMMENTS__: Great description and overview of why ABM is being used.*
+
 ### Main Micro-level Processes and Macro-level Dynamics of Interest
 *****
 
 As I will outline below, I want to examine how different spatial dimensions affect the network structure and subsequent activity of those networks. The micro-level processes I will focus on are the rules for synapse formation and the activity of individual neurons. Synapses will form probabilistically by surveying their local environment for (possibly noisy) activity. The activity itself will follow a simple integrate-and-fire formalism, where persistent, environment-driven input will drive early activity and emergent synaptic input will come into effect as networks form. These networks will be probed for structure and other network features including clustering, centrality, and connectivity distribution. Further, by modifying the integrate-and-fire rules to allow for different excitability types, I will examine emergent behavior of network activity by analyzing spiking dynamics for phase coherence/synchronization and effective network connectivity, i.e. networks calculated based on activity instead of structure.
 
 &nbsp;
+
+*__LS COMMENTS:__ Great explanation.*
 
 ## Model Outline
 *****
@@ -80,6 +85,8 @@ def init():
     populateSpace_2D()
 
 ```
+
+*__LS COMMENTS__: Very solid.*
 
 ### 2) Agents
 
@@ -156,6 +163,9 @@ def updateVoltage(time_ind):
 
 &nbsp;
 
+*__LS COMMENTS__: Good.*
+
+
 ### 3) Action and Interaction
 
 #### Interaction Topology
@@ -178,6 +188,8 @@ Neurons will update synchronously with the sequence on each turn as follows:
 4. Neurons survey for synapse creation _if they did not fire_
 
 &nbsp;
+
+*__LS COMMENTS__: Great.*
 
 ### 4) Model Parameters and Initialization
 
@@ -210,6 +222,9 @@ The model procedure is as follows:
 
 &nbsp;
 
+
+*__LS COMMENTS__: Extremely clear and well-thought out. Good idea on handling new synapse creation.*
+
 ### 5) Assessment and Outcome Measures
 
 Successful implementation of this model will yield quantifiable network structures (actual connections) and population spiking data. 
@@ -221,6 +236,7 @@ Spiking data will be analyzed for such things as synchronization, phase coherenc
 These data will be combined and used to classify the system in terms of the spatial dimension constraint. The idea is to determine of what kinds of networks form and what the corresponding activity looks like in terms of different growth environments and to relate this information back to experimental findings.
 
 &nbsp;
+
 
 ### 6) Parameter Sweep
 
@@ -240,3 +256,6 @@ If normalization is successful, I expect that values close to unity in <b> surve
 I also expect that large values of the <b> survey radius </b> and long <b> survey timescales </b> will increase network connectivity and will serve as a high-frequency perturbation to neural activity.
 
 Overall, I expect large values of the above-listed parameters will result in densely connected networks with activity following the mean population excitability type (i.e., type 2 networks will be synchronous whereas type 1 will not). However, speculating about how intermediate values of these parameters will affect network formation and emergent activity is difficult; this is what I want to characterize with the model.
+
+
+*__LS COMMENTS__: Fantastic project that has obviously been well-thought out! Very much look forward to seeing what this produces. 19.5/20*
